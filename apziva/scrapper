@@ -1,0 +1,16 @@
+import twint
+import nest_asyncio
+nest_asyncio.apply()
+
+t=twint.Config()
+t.Search="request for startup"
+t.Store_object=True
+t.Limit=10
+twint.run.Search(t)
+tlist=t.search_tweet_list
+print(tlist)
+
+
+tweets=open('tweets.txt','w')
+tweets.write(tlist)
+tweets.close()
